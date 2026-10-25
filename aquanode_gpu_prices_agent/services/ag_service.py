@@ -28,13 +28,13 @@ class AgService:
                     gpuObj["region"] = gpu["region"]
                     gpuObj["price"] = gpu["price"]
                     gpuObj["gpuMemory"] = gpu["gpuMemory"]
-                    self.gpuDetailsMap["gpuShortName"] = gpu 
+                    self.gpuDetailsMap[gpuObj["gpuShortName"]] = gpu 
                     results.append(gpuObj)
             return results 
         except Exception as e:
             return self._handleError(e)
 
     def getGpuDetails(self, gpuShortName : str):
-        if not(gpuShortName in self.self.gpuDetailsMap):
+        if not(gpuShortName in self.gpuDetailsMap):
             self.getGpusMartetplaceData()
-        return self.getGpusMartetplaceData[gpuShortName]
+        return self.gpuDetailsMap[gpuShortName]

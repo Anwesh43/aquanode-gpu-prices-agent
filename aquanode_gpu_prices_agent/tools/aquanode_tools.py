@@ -9,3 +9,9 @@ def getGpusMarketplaceData():
 def getGpuDetails(gpuShortName : str):
     print(f"Calling getGpuDetails tool {gpuShortName}")
     return ags.getGpuDetails(gpuShortName=gpuShortName)
+
+def getTools():
+    tools = []
+    tools.append(getGpusMarketplaceData)
+    tools.append(getGpuDetails)
+    return tools 
